@@ -159,10 +159,10 @@ int main()
 
         do
         {
-            thread threadPlayerX(PlayerTurn, playerX);
-            threadPlayerX.join();
-            thread threadPlayerY(PlayerTurn, playerY);
-            threadPlayerY.join();
+            thread playerXThread(PlayerTurn, playerX);
+            playerXThread.join();
+            thread playerYThread(PlayerTurn, playerY);
+            playerYThread.join();
         }
         while (score->getXscore()<10 && score->getYscore()<10);
     }
@@ -173,10 +173,10 @@ int main()
 
         do
         {
-            thread threadPlayerY(PlayerTurn, playerY);
-            threadPlayerY.join();
-            thread threadPlayerX(PlayerTurn, playerX);
-            threadPlayerX.join();
+            thread playerYThread(PlayerTurn, playerY);
+            playerYThread.join();
+            thread playerXThread(PlayerTurn, playerX);
+            playerXThread.join();
         }
         while (score->getXscore() < 10 && score->getYscore() < 10);
     }
